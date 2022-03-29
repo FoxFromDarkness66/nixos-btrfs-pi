@@ -7,7 +7,7 @@ make_swap() {
   local swapfile=/mnt/swap/swapfile
   umount -R /mnt/swap || true
   mkdir -p /mnt/swap
-  mount -o subvol=@swap /dev/mmcblk0p2 /mnt/swap
+  mount -o subvol=@swap /dev/disk/by-label/NIXOS_SD /mnt/swap
 
   [[ -e "${swapfile}" ]] && {
     swapon "${swapfile}"
